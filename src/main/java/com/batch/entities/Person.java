@@ -1,5 +1,6 @@
 package com.batch.entities;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table (name = "persons")
+@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
 public class Person {
 
     @Id

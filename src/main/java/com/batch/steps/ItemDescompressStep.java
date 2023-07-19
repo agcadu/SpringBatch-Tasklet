@@ -27,7 +27,8 @@ public class ItemDescompressStep implements Tasklet {
 
         log.info("---->Iniciando descompresión de datos");
 
-        Resource resource = resourceLoader.getResource("classpath:files/person.zip");
+        //Recuperamos el fichero zip del classpath y lo descomprimimos en la carpeta destination del mismo directorio donde se encuentra el zip
+        Resource resource = resourceLoader.getResource("classpath:files/persons.zip");
         String filePath = resource.getFile().getAbsolutePath();
 
         ZipFile zipFile = new ZipFile(filePath);
