@@ -1,0 +1,11 @@
+com\batch\controller\BatchController.class
+com\batch\steps\ItemProcessorStep.class
+com\batch\service\PersonServiceImpl.class
+com\batch\service\IPersonService.class
+com\batch\steps\ItemReaderStep.class
+com\batch\persistence\IPersonDAO.class
+com\batch\steps\ItemWritterStep.class
+com\batch\steps\ItemDescompressStep.class
+com\batch\SpringBatchApplication.class
+com\batch\config\BatchConfig.class
+com\batch\entities\Person.class

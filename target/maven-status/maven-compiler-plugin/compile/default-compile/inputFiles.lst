@@ -1,0 +1,11 @@
+D:\cursos\SpringBatch\src\main\java\com\batch\entities\Person.java
+D:\cursos\SpringBatch\src\main\java\com\batch\steps\ItemProcessorStep.java
+D:\cursos\SpringBatch\src\main\java\com\batch\persistence\IPersonDAO.java
+D:\cursos\SpringBatch\src\main\java\com\batch\service\PersonServiceImpl.java
+D:\cursos\SpringBatch\src\main\java\com\batch\steps\ItemReaderStep.java
+D:\cursos\SpringBatch\src\main\java\com\batch\SpringBatchApplication.java
+D:\cursos\SpringBatch\src\main\java\com\batch\config\BatchConfig.java
+D:\cursos\SpringBatch\src\main\java\com\batch\controller\BatchController.java
+D:\cursos\SpringBatch\src\main\java\com\batch\steps\ItemDescompressStep.java
+D:\cursos\SpringBatch\src\main\java\com\batch\service\IPersonService.java
+D:\cursos\SpringBatch\src\main\java\com\batch\steps\ItemWritterStep.java
