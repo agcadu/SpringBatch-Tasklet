@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,6 +23,8 @@ import java.util.Map;
 @RequestMapping("/v1")
 public class BatchController {
 
+
+
     @Autowired
     private JobLauncher jobLauncher;
 
@@ -35,29 +36,35 @@ public class BatchController {
 
         String fileName = multipartFile.getOriginalFilename();
 
-        try{
-            Path path = Paths.get("src" + File.separator + "main" + File.separator + "resources" + File.separator + "files" + File.separator + fileName);
+        try {
+            // Construimos la ruta donde se guardará el nuevo archivo fuera del JAR
+            Path externalPath = Paths.get("/files/" + fileName);
 
-            Files.createDirectories(path.getParent());
-            Files.copy(multipartFile.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            // Copiamos el archivo recibido a la ubicación externa
+            Files.createDirectories(externalPath.getParent());
+            Files.copy(multipartFile.getInputStream(), externalPath, StandardCopyOption.REPLACE_EXISTING);
 
             log.info("---->Iniciando proceso Batch");
-            JobParameters jobParameters = new JobParametersBuilder().addDate("date", new Date()).addString("fileName", fileName).toJobParameters();
 
+            // Creamos los parámetros para el trabajo Batch, incluyendo la fecha actual y la ruta externa del archivo
+            JobParameters jobParameters = new JobParametersBuilder()
+                    .addDate("date", new Date())
+                    .addString("filePath", externalPath.toString())
+                    .toJobParameters();
+
+            // Ejecutamos el trabajo Batch con los parámetros
             jobLauncher.run(job, jobParameters);
 
+            // Preparamos la respuesta con información sobre el archivo recibido
             Map<String, String> response = new HashMap<>();
             response.put("archivo", fileName);
             response.put("estado", "recibido");
 
             return ResponseEntity.ok(response);
 
-        }catch (Exception e){
-            log.error("Error al iniciar el proceso Batch {}" + e.getMessage());
-            throw new RuntimeException();
-
-        }
-
-
+        } catch (Exception e) {
+            log.error("Error al iniciar el proceso Batch: " + e.getMessage());
+            throw new RuntimeException("Error al iniciar el proceso Batch", e);
         }
     }
+}
