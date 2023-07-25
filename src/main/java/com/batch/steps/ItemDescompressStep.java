@@ -6,7 +6,6 @@ import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
@@ -26,7 +25,7 @@ public class ItemDescompressStep implements Tasklet {
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
         log.info("----> Iniciando descompresión de datos");
 
-        String externalFilePath = "/files/persons.zip"; // Ruta del archivo zip que se encuentra fuera del JAR
+        String externalFilePath = "/files/persons.zip";
 
         // Recuperamos el fichero zip del externalFilePath y lo descomprimimos en la carpeta destination del mismo directorio donde se encuentra el zip
         Resource resource = resourceLoader.getResource("file:" + externalFilePath);

@@ -1,5 +1,5 @@
-name,lastName,age
-sara,varas,39
-Ramon,Amoros,38
-Juan,Julia,10
-Daniel,Rodiguez,8
+name,lastName,age,email,phone
+Ramon,Ramirez,39,Ramon@gmail.com,693147852
+Sara,Varas,38,Svar@hotmail.com,961202783
+Jesus,Juan,10,JJ@yahoo.es,654789123
+Daniel,Maria,20,dani_mar@gmail.com,678954325

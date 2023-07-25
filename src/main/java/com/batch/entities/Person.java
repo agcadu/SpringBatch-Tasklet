@@ -22,6 +22,14 @@ public class Person {
 
     private int age;
 
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "phone")
+    private String phone;
+
     @Column(name = "insertion_date")
     private String insertionDate;
+
+
 }

@@ -53,6 +53,8 @@ public class ItemReaderStep implements Tasklet {
                 person.setName(line[0]);
                 person.setLastName(line[1]);
                 person.setAge(Integer.parseInt(line[2]));
+                person.setEmail(line[3]);
+                person.setPhone(line[4]);
 
                 personList.add(person);
             }
