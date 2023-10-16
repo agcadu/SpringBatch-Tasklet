@@ -23,8 +23,6 @@ import java.util.Map;
 @RequestMapping("/v1")
 public class BatchController {
 
-
-
     @Autowired
     private JobLauncher jobLauncher;
 
